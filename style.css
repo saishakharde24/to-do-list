@@ -138,4 +138,17 @@ h2 {
      gap: 15px; 
 }
 
+.icon {
+     width: 26px;
+      height: 26px; 
+      cursor: pointer; 
+      transition: 0.3s; 
+      object-fit: contain; 
+    } 
+    
+.icon:hover {
+     transform: scale(1.15);
+      opacity: 0.8;
+     }
+
 
