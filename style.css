@@ -132,4 +132,10 @@ h2 {
     color: gray;
 }
 
+.actions { 
+    display: flex;
+     align-items: center; 
+     gap: 15px; 
+}
+
 
