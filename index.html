@@ -101,11 +101,22 @@
             loadTodoItems();
         }
 
-       
-               
+        function editTodoItem(index) {
 
-      torage.setItem("TODO_ITEMS", JSON.stringify(todoItems));
+            const storedTodoItems = getTodoItemsFromLS();
+
+            const updatedItem = prompt("Edit Task", storedTodoItems[index].text);
+
+            if (updatedItem !== null && updatedItem.trim() !== "") {
+
+                storedTodoItems[index].text = updatedItem;
+
+                setTodoItemsToLS(storedTodoItems);
+
+                loadTodoItems();
+            }
         }
+
     </script>
 
 
