@@ -35,7 +35,6 @@
         </div>
     </div>
 
-
     <script>
         const todoContainer = document.getElementById("todoList");
 
@@ -69,7 +68,30 @@
 
             </div>
 
-        
+            <div class="actions">
+
+                <img src="images/edit.png"
+                     class="icon"
+                     alt="Edit"
+                     onclick="editTodoItem(${i})">
+
+                <img src="images/delete.png"
+                     class="icon"
+                     alt="Delete"
+                     onclick="deleteTodoItem(${i})">
+
+            </div>
+
+        </div>
+        `;
+            }
+
+            document.getElementById("completed").innerText = completed;
+            document.getElementById("remaining").innerText = todoItems.length - completed;
+        }
+
+        loadTodoItems();
+
         function addTodo() {
 
             const todoInputElement = document.getElementById("todoInput");
@@ -117,9 +139,29 @@
             }
         }
 
+        function deleteTodoItem(index) {
+
+            const storedTodoItems = getTodoItemsFromLS();
+
+            storedTodoItems.splice(index, 1);
+
+            setTodoItemsToLS(storedTodoItems);
+
+            loadTodoItems();
+        }
+
+        function getTodoItemsFromLS() {
+
+            return JSON.parse(localStorage.getItem("TODO_ITEMS")) || [];
+        }
+
+        function setTodoItemsToLS(todoItems) {
+
+            localStorage.setItem("TODO_ITEMS", JSON.stringify(todoItems));
+        }
+    
+
     </script>
-
-
 
 
 </body>
